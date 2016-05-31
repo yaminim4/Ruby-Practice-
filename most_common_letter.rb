@@ -38,3 +38,36 @@ end
 trial1 = "abca"
 
 mcl(trial1)
+
+#================================version2==================================
+def mcl(string)
+    array_of_string = string.split('') #check output of this
+
+    idx_array = 0
+    count_of_letter = 0
+    largest_count = 0
+    idx_comparison = 0
+
+    while idx_array < array_of_string.length     # taking each letter, one by one..(the "constant letter")
+        letter = array_of_string[idx_array]
+
+        while idx_comparison < array_of_string.length  #for a given letter, comparing it with the other letters in the array.
+            letter_of_comparison = array_of_string[idx_comparison] #the other letters in the array
+            if letter == letter_of_comparison #if the "constant letter matches the letter it is compared to... "
+                count_of_letter += 1 #count goes up by 1
+            end
+            idx_comparison += 1 #the constant letter is compared to the next letter of the array.
+        end
+        return count_of_letter #after constant letter is compared to all the letters in the array. the count is now
+                               # the count of the constant letter.
+        if count_of_letter > largest_count  #the count takes the honor of "largest", if it is > than the present largest.
+            largest_count = count_of_letter #here, need to make provisions for more than one letter with the same frequency.
+        end
+        idx_array += 1 #we repeat the above steps on the next "constant letter" of the array
+    end
+    puts [count_of_letter, largest_count]
+end
+
+trial1 = "abca"
+
+mcl trial1 
